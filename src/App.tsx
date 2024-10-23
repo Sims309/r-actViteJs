@@ -1,22 +1,30 @@
-
-import "./App.css";
-
-import PokemonCard from "./components.tsx/pokemonCard";
+import PokemonCard from "./components/PokemonCard";
 
 function App() {
-  return (
-    <section>
-        
-      <PokemonCard/>
-
-  {/* <div>
-    <h1>Helllo World pokemonCard</h1>
-    <h2>Pikatchou</h2>
-    <img src="./images/image.png" alt=""/>
-  </div> */}
-    
-    </section>
-  );
+	const pokemonList = [
+		{
+			name: "bulbasaur",
+			imgSrc:
+				"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+			id: 1,
+		},
+		{
+			name: "mew",
+			id: 2,
+		},
+	];
+	return (
+		<div>
+			{pokemonList.map((tab) => (
+				<PokemonCard
+					id={tab.id}
+					name={tab.name}
+					image={tab.imgSrc}
+					key={tab.id}
+				/>
+			))}
+		</div>
+	);
 }
 
 export default App;
