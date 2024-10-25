@@ -1,13 +1,15 @@
 interface PokemonList {
-	name: string;
-	image?: string;
-	id: number;
+	pokemon: { name: string; imgSrc?: string; id: number };
 }
 
-function PokemonCard({ name, image, id }: PokemonList) {
+function PokemonCard({ pokemon }: PokemonList) {
 	return (
 		<div>
-			{image ? <img src={image} alt={name} /> : <p>Hellooooooooooooooooo</p>}
+			{pokemon.imgSrc ? (
+				<img src={pokemon.imgSrc} alt={pokemon.name} />
+			) : (
+				<p>Hellooooooooooooooooo {pokemon.name}</p>
+			)}
 		</div>
 	);
 }
